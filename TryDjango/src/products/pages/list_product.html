@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block stylesheet %}
+
+{% endblock %}
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">name</th>
+            <th scope="col">price</th>
+            <th scope="col">action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in product_list %}
+        <tr>
+            <th scope="row">{{ product.id }}</td>
+            <td><a href="{{ product.get_detail_url }}">{{ product.product_name }}</a></td>
+            <td>{{ product.price}}</td>
+            <td>    <a href="{{ product.get_edit_url }}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'products:delete_product' product_id=product.id %}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+    <a href="{% url 'products:create_product'%}" class="btn btn-success">Create</a>
+
+{% endblock %}

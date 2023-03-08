@@ -1,0 +1,6 @@
+.grid-container .footer{
+    grid-area: footer;
+    background-color: brown;
+    height: 100px;
+    min-width: 900px;
+}

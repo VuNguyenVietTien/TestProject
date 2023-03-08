@@ -1,0 +1,6 @@
+.grid-container .leftside{
+    grid-area: leftside;
+}
+.grid-container .rightside{
+    grid-area: rightside;
+}

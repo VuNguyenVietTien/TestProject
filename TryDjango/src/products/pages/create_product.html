@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+<!-- <script src="//cdn.ckeditor.com/4.20.1/full/ckeditor.js"></script> -->
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+{% endblock %}
+{% block content %}
+<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div class="form-group">
+        {{ productForm.product_name.label_tag }}
+        {{ productForm.product_name.errors }}
+        {{ productForm.product_name }}
+        {{ productForm.description.label_tag }}
+        {{ productForm.description }}
+        {{ productForm.price.label_tag }}
+        {{ productForm.price.errors }}
+        {{ productForm.price }}
+        {{ productImageForm.image.label_tag }}
+        
+        <div class="image_upload ">
+            <span class="inner">Drag & drop image here or <span class="select">Browser</span></span>
+            {{ productImageForm.image }}
+            <div class="selected_file">
+
+            </div>
+        </div>
+        <div class="button_section">
+            <input type="submit" class="btn btn-success" value="Save">
+            <a class="btn btn-secondary" href="{% url 'products:list_product'%}">
+                Return
+            </a>
+        </div>
+        <script>
+            // CKEDITOR.replace( 'description' );
+        </script>
+        <script src="{% static 'js/dragdrop.js' %}"></script>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/side.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% block stylesheet %}
+    {% endblock %}
+    <title>TryDjango</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-image">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'logo.jpeg' %}" alt="">
+                    </a>
+                </div>
+                <div class="logo-text">
+                    <span>Ecommerce</span>
+                </div>
+            </div>
+            <div class="search-box">
+                <label for="search" class="search-text">Search</label>
+                <input type="search" name="search" id="">
+                <button class="fa-solid fa-magnifying-glass btn-search"></button>
+
+            </div>
+            <nav class="nav-bar">
+                <div class="user-info">
+                    {% if user.is_authenticated %}
+                    <i class="fa-solid fa-user"></i>
+                    <span>Hello {{ user.username }}</span>
+                    {% else %}
+                    <!-- <a href="{% url 'login' %}" class="btn btn-primary btn-login">
+                        Login
+                    </a> -->
+                    <a href="/login" class="btn btn-primary btn-login">
+                        Login
+                    </a>
+                    {% endif %}
+                </div>
+                <i class="fa-solid fa-bars hamburger"></i>
+                <ul class="nav-link">
+                    <li><a href="/about">About US</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="leftside">
+            
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="rightside">
+            
+        </div>
+        <div class="footer">
+    
+        </div>
+    </div>
+
+
+</body>
+</html>

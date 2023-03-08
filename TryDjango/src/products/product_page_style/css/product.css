@@ -1,0 +1,94 @@
+.form-group{
+    max-width: 600px;
+}
+.image_upload {
+    width: 100%;
+    min-height: 160px;
+    border-radius: 5px;
+    border: 2px dashed #d5d5e1;
+    color: #c8c9dd;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    background-color: #dfe3f259;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    margin-top: 20px;
+}
+
+.image_upload .select{
+    color: #5256ad;
+    margin-left: 7px;
+    cursor: pointer;
+}
+
+.image_upload .inner{
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.file {
+    display: none;
+}
+
+.dragover{
+    border-style: solid;
+    font-size: 2rem;
+    color: #c8c9dd;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.34);
+}
+
+.selected_file{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 85px);
+    gap: 10px;
+    grid-auto-flow: dense;
+    position: relative;
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.selected_file .image{
+    aspect-ratio: 1 /1 ;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.selected_file .image:nth-child(4n){
+    margin-right: 0;
+}
+
+.selected_file .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.selected_file .image span{
+    position: absolute;
+    top: -4px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #fff;
+}
+
+.button_section{
+    width: 100%;
+    clear: both;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    
+}
